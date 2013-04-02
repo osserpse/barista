@@ -41,8 +41,9 @@ Använd denna folderstruktur:
 /sass
     /base                 // Reset och standard-styling, i princip inga klasser här
     /blocks               // Alla "legobitar", building blocks
-    /modules              // Specifika vyer (men inte nödvändigtvis sidor)
-                          //   "blocks" används inuti  
+    /modules              // Specifika större delar, med "semantic classname"
+                          //   "blocks" används inuti. Gränsen mellan "blocks" och 
+                          //   "modules" är lite flytande...
     /color                // "Grafisk profil"
     /hui                  // Happy User-specifikt, för visualisering av Color Palette
     /layout               // Grid och generella spacing-utilities
