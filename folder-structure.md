@@ -41,12 +41,12 @@ Använd denna folderstruktur:
 /sass
     /base                 // Reset och standard-styling, i princip inga klasser här
     /blocks               // Alla "legobitar", building blocks
-    /modules              // Specifika större delar, med "semantic classname"
-                          //   "blocks" används inuti. Gränsen mellan "blocks" och 
-                          //   "modules" är lite flytande...
     /color                // "Grafisk profil"
     /hui                  // Happy User-specifikt, för visualisering av Color Palette
     /layout               // Grid och generella spacing-utilities
+    /page-modules         // Specifika större delar, med "semantic classname"
+                          //   "blocks" används inuti. Gränsen mellan "blocks" och 
+                          //   "page-modules" är lite flytande...
     /theme                // Används bara för en sajt som behöver *flera* tema
     _mixins.scss          // Alla mixins som används av flera scss-filer
     _utilities.scss       // Accessibility
@@ -124,16 +124,18 @@ Modules är "stora" sammanhållande vyer:
 * `/sass/color`    
   Här skapas alla färger som kommer att användas i projektet. Logiken är denna
     1. Ange grundfärgerna från den grafiska profilen i `_color-settings.scss`
-    2. I `_color-function-scale-color.scss` används så kallade *color funktions* från SASS för att skapa olika nyanser av grundfärgerna.
+    2. I `_color-function-scale-color.scss` används så kallade *color functions* från SASS för att skapa olika nyanser av grundfärgerna.
     3. När vi nu har alla färgerna, skapar vi en presentation av dess i `color-demo-table.scss`; och sätter samman en css-fil genom `color-demo-page.scss`.
     4. I html-sidan `color-palette.html` visas slutresultatet.
 
     ````
-    _color-demo-table.scss            // Styles för att visa färgpaletten
-    _color-function-scale-color.scss  // SASS color function för att rendera toner
     _color-settings.scss              // Färgerna som ska användas, från Grafisk Profil
+    _color-function-scale-color.scss  // SASS color function för att rendera toner
+                                      //   Denna fil importeras i _variable.scss
+    _color-demo-table.scss            // Styles för att visa tabell med färgpaletten
     color-demo-page.scss
-    color-palette.html                // Färgpaletten
+    color-palette.html                // Sida med färgpaletten, "color-demo-page.css"
+                                      //   läses in här
     ````
     
 * `/sass/layout`    
