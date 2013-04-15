@@ -51,14 +51,14 @@ Exempel på bra kodlayout:
 * Namngivning av klasser är inspirerad av BEM (Block Element Modifier) och Nicolas Gallagher:
     * ``.block`` är byggstenen, eller "legobiten"".
     * ``.block--modifier`` *Modifier* är en variant eller state av ``.block``.  
-    * ``.block__element`` *Element* är delarna som bygger upp ett ``.block``.
+    * ``.block__element`` *Element* är fler delar som kan användas inom ett ``.block``.
 
     ````
     .block {}
     .block-long-name {} // flera ord skiljs med bindestreck
     .block-long-name--modifier {}
-    .block__sub-block {}
-    .block__sub-block--modifier {}
+    .block__element {}
+    .block__element--modifier {}
     ````
 * För SASS-variabler används ``snake_case`` konsekvent.
 
